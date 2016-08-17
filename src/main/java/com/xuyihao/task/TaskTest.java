@@ -16,9 +16,15 @@ public class TaskTest {
      * 定时任务
      *
      */
-    @Scheduled(cron = "0/2 * * * * ?")
+    @Scheduled(cron = "3/5 * * * * *")
     public void taskTest(){
-        i++;
-        System.out.println("Execute once ... for " + i + " times");
+        System.out.println("5秒" + DateUtils.currentDateTime());
+        System.out.println();
+    }
+
+    @Scheduled(cron = "0/10 * * * * *")
+    public void taskTenSeconds(){
+        System.out.println("10秒" + DateUtils.currentDateTime());
+        System.out.println();
     }
 }
