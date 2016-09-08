@@ -16,6 +16,7 @@ public class TaskTest {
      * 定时任务
      *
      */
+    /*
     @Scheduled(cron = "3/5 * * * * *")
     public void taskTest(){
         System.out.println("5秒" + DateUtils.currentDateTime());
@@ -26,5 +27,11 @@ public class TaskTest {
     public void taskTenSeconds(){
         System.out.println("10秒" + DateUtils.currentDateTime());
         System.out.println();
+    }
+    */
+
+    @Scheduled(cron = "0 52 14 6 * *")
+    public void taskMonthly(){
+        System.out.println("月触发!");
     }
 }
