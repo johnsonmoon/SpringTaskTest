@@ -3,10 +3,8 @@ package com.xuyihao.task;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Xuyh at 2016/08/04 下午 08:10.
@@ -15,7 +13,16 @@ public class TestMain {
     public static void main(String args[]){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:app-context-*.xml");
         //test1();
-        test2();
+        //test2();
+        test3();
+    }
+
+    public static void test3(){
+        Date now = DateUtils.parseDate(DateUtils.currentDate());
+        String thisMonth = getMonth(DateUtils.parseDate(DateUtils.currentDate()));
+        String thisDay = getDay(DateUtils.parseDate(DateUtils.currentDate()));
+        System.out.println(thisMonth);
+        System.out.println(thisDay);
     }
 
     public static void test2(){
@@ -81,5 +88,17 @@ public class TestMain {
             }
         }
         return listNew;
+    }
+
+    private static String getDay(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd");
+        String day = simpleDateFormat.format(date);
+        return day;
+    }
+
+    private static String getMonth(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM");
+        String month = simpleDateFormat.format(date);
+        return month;
     }
 }
